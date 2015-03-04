@@ -55,7 +55,7 @@ import static org.optaplanner.examples.common.swingui.timetable.TimeTablePanel.H
 
 public class GolfTourPanel extends SolutionPanel {
 
-    public static final String LOGO_PATH = "/org/optaplanner/examples/tennis/swingui/tennisLogo.png";
+    public static final String LOGO_PATH = "/org/optaplanner/examples/golftour/swingui/golfTourLogo.png";
 
     private final TimeTablePanel<Day, Team> datesPanel;
     private final TimeTablePanel<Team, Team> confrontationsPanel;

@@ -21,6 +21,7 @@ import org.optaplanner.core.api.solver.SolverFactory;
 import org.optaplanner.examples.common.app.CommonApp;
 import org.optaplanner.examples.common.persistence.SolutionDao;
 import org.optaplanner.examples.common.swingui.SolutionPanel;
+import org.optaplanner.examples.golftour.swingui.GolfTourPanel;
 import org.optaplanner.examples.tennis.persistence.GolfTourDao;
 import org.optaplanner.examples.tennis.swingui.TennisPanel;
 
@@ -35,11 +36,16 @@ public class GolfTourApp extends CommonApp {
     }
 
     public GolfTourApp() {
-        super("Tennis club scheduling",
-                "Assign available spots to teams.\n\n" +
-                        "Each team must play an almost equal number of times.\n" +
-                        "Each team must play against each other team an almost equal number of times.",
-                TennisPanel.LOGO_PATH);
+        super("Golf Tour Match Scheduling",
+                "Assign players into pairs and into matches.\n\n" +
+                        "eight players.\n" +
+                        "four rounds so eight matches.\n" +
+                        "four ball better ball.\n" +
+                        "players can't be paired together more than one.\n" +
+                        "no two players can play in every match together.\n" +
+                        "each player can only be paired with the same player once.\n" +
+                        "oppose each player at least once.",
+                GolfTourPanel.LOGO_PATH);
     }
 
     @Override
