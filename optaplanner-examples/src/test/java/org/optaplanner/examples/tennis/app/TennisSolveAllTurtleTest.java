@@ -22,13 +22,13 @@ import java.util.Collection;
 import org.junit.runners.Parameterized;
 import org.optaplanner.examples.common.app.UnsolvedDirSolveAllTurtleTest;
 import org.optaplanner.examples.common.persistence.SolutionDao;
-import org.optaplanner.examples.tennis.persistence.TennisDao;
+import org.optaplanner.examples.tennis.persistence.GolfTourDao;
 
 public class TennisSolveAllTurtleTest extends UnsolvedDirSolveAllTurtleTest {
 
     @Parameterized.Parameters(name = "{index}: {0}")
     public static Collection<Object[]> getSolutionFilesAsParameters() {
-        return getUnsolvedDirFilesAsParameters(new TennisDao());
+        return getUnsolvedDirFilesAsParameters(new GolfTourDao());
     }
 
     public TennisSolveAllTurtleTest(File unsolvedDataFile) {
@@ -42,7 +42,7 @@ public class TennisSolveAllTurtleTest extends UnsolvedDirSolveAllTurtleTest {
 
     @Override
     protected SolutionDao createSolutionDao() {
-        return new TennisDao();
+        return new GolfTourDao();
     }
 
 }

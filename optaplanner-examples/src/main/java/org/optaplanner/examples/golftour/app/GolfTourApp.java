@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.optaplanner.examples.tennis.app;
+package org.optaplanner.examples.golftour.app;
 
 import org.optaplanner.core.api.solver.Solver;
 import org.optaplanner.core.api.solver.SolverFactory;
@@ -24,17 +24,17 @@ import org.optaplanner.examples.common.swingui.SolutionPanel;
 import org.optaplanner.examples.tennis.persistence.GolfTourDao;
 import org.optaplanner.examples.tennis.swingui.TennisPanel;
 
-public class TennisApp extends CommonApp {
+public class GolfTourApp extends CommonApp {
 
     public static final String SOLVER_CONFIG
             = "org/optaplanner/examples/golftour/solver/golfTourSolverConfig.xml";
 
     public static void main(String[] args) {
         prepareSwingEnvironment();
-        new TennisApp().init();
+        new GolfTourApp().init();
     }
 
-    public TennisApp() {
+    public GolfTourApp() {
         super("Tennis club scheduling",
                 "Assign available spots to teams.\n\n" +
                         "Each team must play an almost equal number of times.\n" +

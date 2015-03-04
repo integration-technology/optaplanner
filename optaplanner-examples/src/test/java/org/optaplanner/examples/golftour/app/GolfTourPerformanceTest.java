@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.optaplanner.examples.tennis.app;
+package org.optaplanner.examples.golftour.app;
 
 import java.io.File;
 
@@ -24,11 +24,11 @@ import org.optaplanner.examples.common.app.SolverPerformanceTest;
 import org.optaplanner.examples.common.persistence.SolutionDao;
 import org.optaplanner.examples.tennis.persistence.GolfTourDao;
 
-public class TennisPerformanceTest extends SolverPerformanceTest {
+public class GolfTourPerformanceTest extends SolverPerformanceTest {
 
     @Override
     protected String createSolverConfigResource() {
-        return TennisApp.SOLVER_CONFIG;
+        return GolfTourApp.SOLVER_CONFIG;
     }
 
     @Override

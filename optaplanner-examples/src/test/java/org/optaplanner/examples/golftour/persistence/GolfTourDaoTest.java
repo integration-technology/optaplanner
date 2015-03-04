@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.optaplanner.examples.tennis.persistence;
+package org.optaplanner.examples.golftour.persistence;
 
 import java.io.File;
 import java.util.Collection;
@@ -23,19 +23,19 @@ import org.junit.runners.Parameterized;
 import org.optaplanner.examples.common.persistence.SolutionDao;
 import org.optaplanner.examples.common.persistence.SolutionDaoTest;
 
-public class TennisDaoTest extends SolutionDaoTest {
+public class GolfTourDaoTest extends SolutionDaoTest {
 
     @Override
     protected SolutionDao createSolutionDao() {
-        return new GolfTourDao();
+        return new org.optaplanner.examples.tennis.persistence.GolfTourDao();
     }
 
     @Parameterized.Parameters(name = "{index}: {0}")
     public static Collection<Object[]> getSolutionFilesAsParameters() {
-        return getSolutionFilesAsParameters(new GolfTourDao());
+        return getSolutionFilesAsParameters(new org.optaplanner.examples.tennis.persistence.GolfTourDao());
     }
 
-    public TennisDaoTest(File solutionFile) {
+    public GolfTourDaoTest(File solutionFile) {
         super(solutionFile);
     }
 

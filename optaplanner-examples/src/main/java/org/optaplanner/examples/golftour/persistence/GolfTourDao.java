@@ -16,27 +16,13 @@
 
 package org.optaplanner.examples.tennis.persistence;
 
-import java.io.File;
-import java.util.Collection;
+import org.optaplanner.examples.common.persistence.XStreamSolutionDao;
+import org.optaplanner.examples.tennis.domain.TennisSolution;
 
-import org.junit.runners.Parameterized;
-import org.optaplanner.examples.common.persistence.SolutionDao;
-import org.optaplanner.examples.common.persistence.SolutionDaoTest;
+public class GolfTourDao extends XStreamSolutionDao {
 
-public class TennisDaoTest extends SolutionDaoTest {
-
-    @Override
-    protected SolutionDao createSolutionDao() {
-        return new GolfTourDao();
-    }
-
-    @Parameterized.Parameters(name = "{index}: {0}")
-    public static Collection<Object[]> getSolutionFilesAsParameters() {
-        return getSolutionFilesAsParameters(new GolfTourDao());
-    }
-
-    public TennisDaoTest(File solutionFile) {
-        super(solutionFile);
+    public GolfTourDao() {
+        super("tennis", TennisSolution.class);
     }
 
 }

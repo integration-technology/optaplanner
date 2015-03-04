@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.optaplanner.examples.tennis.persistence;
+package org.optaplanner.examples.golftour.persistence;
 
 import java.io.File;
 import java.math.BigInteger;
@@ -29,17 +29,18 @@ import org.optaplanner.examples.tennis.domain.Team;
 import org.optaplanner.examples.tennis.domain.TeamAssignment;
 import org.optaplanner.examples.tennis.domain.TennisSolution;
 import org.optaplanner.examples.tennis.domain.UnavailabilityPenalty;
+import org.optaplanner.examples.tennis.persistence.GolfTourDao;
 
-public class TennisGenerator extends LoggingMain {
+public class GolfTourGenerator extends LoggingMain {
 
     public static void main(String[] args) {
-        new TennisGenerator().generate();
+        new GolfTourGenerator().generate();
     }
 
     protected final SolutionDao solutionDao;
     protected final File outputDir;
 
-    public TennisGenerator() {
+    public GolfTourGenerator() {
         solutionDao = new GolfTourDao();
         outputDir = new File(solutionDao.getDataDir(), "unsolved");
     }

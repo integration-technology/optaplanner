@@ -56,7 +56,7 @@ import org.optaplanner.examples.nqueens.app.NQueensApp;
 import org.optaplanner.examples.nurserostering.app.NurseRosteringApp;
 import org.optaplanner.examples.pas.app.PatientAdmissionScheduleApp;
 import org.optaplanner.examples.projectjobscheduling.app.ProjectJobSchedulingApp;
-import org.optaplanner.examples.tennis.app.TennisApp;
+import org.optaplanner.examples.golftour.app.GolfTourApp;
 import org.optaplanner.examples.travelingtournament.app.TravelingTournamentApp;
 import org.optaplanner.examples.tsp.app.TspApp;
 import org.optaplanner.examples.vehiclerouting.app.VehicleRoutingApp;
@@ -142,7 +142,8 @@ public class OptaPlannerExamplesApp extends JFrame {
         panel.add(createExampleButton(new CloudBalancingApp()));
         panel.add(createExampleButton(new TspApp()));
         panel.add(createExampleButton(new DinnerPartyApp()));
-        panel.add(createExampleButton(new TennisApp()));
+        panel.add(createExampleButton(new GolfTourApp()));
+        panel.add(createExampleButton(new GolfTourApp()));
         return panel;
     }
 

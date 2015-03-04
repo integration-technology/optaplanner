@@ -14,29 +14,35 @@
  * limitations under the License.
  */
 
-package org.optaplanner.examples.tennis.persistence;
+package org.optaplanner.examples.golftour.app;
 
 import java.io.File;
 import java.util.Collection;
 
 import org.junit.runners.Parameterized;
+import org.optaplanner.examples.common.app.UnsolvedDirSolveAllTurtleTest;
 import org.optaplanner.examples.common.persistence.SolutionDao;
-import org.optaplanner.examples.common.persistence.SolutionDaoTest;
+import org.optaplanner.examples.tennis.persistence.GolfTourDao;
 
-public class TennisDaoTest extends SolutionDaoTest {
+public class GolfTourSolveAllTurtleTest extends UnsolvedDirSolveAllTurtleTest {
+
+    @Parameterized.Parameters(name = "{index}: {0}")
+    public static Collection<Object[]> getSolutionFilesAsParameters() {
+        return getUnsolvedDirFilesAsParameters(new GolfTourDao());
+    }
+
+    public GolfTourSolveAllTurtleTest(File unsolvedDataFile) {
+        super(unsolvedDataFile);
+    }
+
+    @Override
+    protected String createSolverConfigResource() {
+        return GolfTourApp.SOLVER_CONFIG;
+    }
 
     @Override
     protected SolutionDao createSolutionDao() {
         return new GolfTourDao();
-    }
-
-    @Parameterized.Parameters(name = "{index}: {0}")
-    public static Collection<Object[]> getSolutionFilesAsParameters() {
-        return getSolutionFilesAsParameters(new GolfTourDao());
-    }
-
-    public TennisDaoTest(File solutionFile) {
-        super(solutionFile);
     }
 
 }
