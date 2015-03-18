@@ -21,13 +21,13 @@ import org.optaplanner.core.api.solver.SolverFactory;
 import org.optaplanner.examples.common.app.CommonApp;
 import org.optaplanner.examples.common.persistence.SolutionDao;
 import org.optaplanner.examples.common.swingui.SolutionPanel;
-import org.optaplanner.examples.tennis.persistence.GolfTourDao;
+import org.optaplanner.examples.tennis.persistence.TennisDao;
 import org.optaplanner.examples.tennis.swingui.TennisPanel;
 
 public class TennisApp extends CommonApp {
 
     public static final String SOLVER_CONFIG
-            = "org/optaplanner/examples/golftour/solver/golfTourSolverConfig.xml";
+            = "org/optaplanner/examples/tennis/solver/golfTourSolverConfig.xml";
 
     public static void main(String[] args) {
         prepareSwingEnvironment();
@@ -55,7 +55,7 @@ public class TennisApp extends CommonApp {
 
     @Override
     protected SolutionDao createSolutionDao() {
-        return new GolfTourDao();
+        return new TennisDao();
     }
 
 }

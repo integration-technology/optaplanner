@@ -95,7 +95,7 @@ public class TravelingTournamentPanel extends SolutionPanel {
         }
         teamsPanel.defineColumnHeader(null, footprintWidth); // Unassigned
 
-        teamsPanel.defineRowHeaderByKey(HEADER_ROW); // Team header
+        teamsPanel.defineRowHeaderByKey(HEADER_ROW); // Player header
         for (Day day : travelingTournament.getDayList()) {
             teamsPanel.defineRowHeader(day);
         }

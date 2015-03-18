@@ -24,12 +24,12 @@ import java.util.List;
 import org.optaplanner.examples.common.app.LoggingMain;
 import org.optaplanner.examples.common.persistence.AbstractSolutionImporter;
 import org.optaplanner.examples.common.persistence.SolutionDao;
-import org.optaplanner.examples.tennis.domain.Day;
-import org.optaplanner.examples.tennis.domain.Team;
-import org.optaplanner.examples.tennis.domain.TeamAssignment;
-import org.optaplanner.examples.tennis.domain.TennisSolution;
-import org.optaplanner.examples.tennis.domain.UnavailabilityPenalty;
-import org.optaplanner.examples.tennis.persistence.GolfTourDao;
+import org.optaplanner.examples.golftour.domain.GolfTourSolution;
+import org.optaplanner.examples.golftour.domain.Round;
+import org.optaplanner.examples.golftour.domain.Player;
+import org.optaplanner.examples.golftour.domain.Pair;
+import org.optaplanner.examples.golftour.domain.MatchAssignment;
+import org.optaplanner.examples.golftour.persistence.GolfTourDao;
 
 public class GolfTourGenerator extends LoggingMain {
 
@@ -46,64 +46,62 @@ public class GolfTourGenerator extends LoggingMain {
     }
 
     public void generate() {
-        String inputId = "munich-7teams";
+        String inputId = "golftour-four-rounds-eight-players";
         File outputFile = new File(outputDir, inputId + ".xml");
-        TennisSolution tennisSolution = createTennisSolution(inputId);
-        solutionDao.writeSolution(tennisSolution, outputFile);
+        GolfTourSolution golfTourSolution = createGolfTourSolution(inputId);
+        solutionDao.writeSolution(golfTourSolution, outputFile);
     }
 
-    private TennisSolution createTennisSolution(String inputId) {
-        TennisSolution tennisSolution = new TennisSolution();
-        tennisSolution.setId(0L);
+    private GolfTourSolution createGolfTourSolution(String inputId) {
+        GolfTourSolution golfTourSolution = new GolfTourSolution();
+        golfTourSolution.setId(0L);
 
-        List<Team> teamList = new ArrayList<Team>();
-        teamList.add(new Team(0L, "Micha"));
-        teamList.add(new Team(1L, "Angelika"));
-        teamList.add(new Team(2L, "Katrin"));
-        teamList.add(new Team(3L, "Susi"));
-        teamList.add(new Team(4L, "Irene"));
-        teamList.add(new Team(5L, "Kristina"));
-        teamList.add(new Team(6L, "Tobias"));
-        tennisSolution.setTeamList(teamList);
-
-        List<Day> dayList = new ArrayList<Day>();
-        for (int i = 0; i < 18; i++) {
-            dayList.add(new Day(i, i));
+        int ASCII_A = 97                    ;
+        List<Player> playerList = new ArrayList<Player>();
+        for (int i = 0; i < 8; i++) {
+          playerList.add(new Player(i, Character.toString((char) (ASCII_A + i))));
         }
-        tennisSolution.setDayList(dayList);
 
-        List<UnavailabilityPenalty> unavailabilityPenaltyList = new ArrayList<UnavailabilityPenalty>();
-        unavailabilityPenaltyList.add(new UnavailabilityPenalty(teamList.get(4), dayList.get(0)));
-        unavailabilityPenaltyList.add(new UnavailabilityPenalty(teamList.get(6), dayList.get(1)));
-        unavailabilityPenaltyList.add(new UnavailabilityPenalty(teamList.get(2), dayList.get(2)));
-        unavailabilityPenaltyList.add(new UnavailabilityPenalty(teamList.get(4), dayList.get(3)));
-        unavailabilityPenaltyList.add(new UnavailabilityPenalty(teamList.get(4), dayList.get(5)));
-        unavailabilityPenaltyList.add(new UnavailabilityPenalty(teamList.get(2), dayList.get(6)));
-        unavailabilityPenaltyList.add(new UnavailabilityPenalty(teamList.get(1), dayList.get(8)));
-        unavailabilityPenaltyList.add(new UnavailabilityPenalty(teamList.get(2), dayList.get(9)));
-        unavailabilityPenaltyList.add(new UnavailabilityPenalty(teamList.get(4), dayList.get(10)));
-        unavailabilityPenaltyList.add(new UnavailabilityPenalty(teamList.get(4), dayList.get(11)));
-        unavailabilityPenaltyList.add(new UnavailabilityPenalty(teamList.get(6), dayList.get(12)));
-        unavailabilityPenaltyList.add(new UnavailabilityPenalty(teamList.get(5), dayList.get(15)));
-        tennisSolution.setUnavailabilityPenaltyList(unavailabilityPenaltyList);
+      long id = 0L;
+      ArrayList<Pair> pairList = new ArrayList<Pair>();
+      for (int leftIndex = 0; leftIndex < (playerList.size() - 2); leftIndex++) {
+        Player leftPlayer = playerList.get(leftIndex);
+        for (int rightIndex = leftIndex + 1; rightIndex < playerList.size() - 1; rightIndex++) {
+          Player rightPlayer = playerList.get(rightIndex);
+          ArrayList<Player> aPair = new ArrayList<Player>(2);
+          aPair.add(leftPlayer);
+          aPair.add(rightPlayer);
+          String aPairName = new String(leftPlayer.getName() + " " + rightPlayer.getName());
+          pairList.add(new Pair(id, aPairName, aPair));
+          id++;
+        }
+      }
 
-        List<TeamAssignment> teamAssignmentList = new ArrayList<TeamAssignment>();
-        long id = 0L;
-        for (Day day : dayList) {
-            for (int i = 0; i < 4; i++) {
-                teamAssignmentList.add(new TeamAssignment(id, day, i));
+      golfTourSolution.setPairList(pairList);
+
+      List<Round> roundList = new ArrayList<Round>();
+      for (int i = 0; i < 4; i++) {
+          roundList.add(new Round(i, i));
+        }
+      golfTourSolution.setRoundList(roundList);
+
+      List<MatchAssignment> matchAssignmentList = new ArrayList<MatchAssignment>();
+        for (Round round : roundList) {
+            for (int i = 0; i < 2; i++) {
+                matchAssignmentList.add(new MatchAssignment(id, round, i));
                 id++;
             }
         }
-        tennisSolution.setTeamAssignmentList(teamAssignmentList);
+        golfTourSolution.setMatchAssignmentList(matchAssignmentList);
 
-        BigInteger possibleSolutionSize = BigInteger.valueOf(teamList.size()).pow(
-                teamAssignmentList.size());
-        logger.info("Tennis {} has {} teams, {} days, {} unavailabilityPenalties and {} teamAssignments"
+
+        BigInteger possibleSolutionSize = BigInteger.valueOf(playerList.size()).pow(
+                matchAssignmentList.size());
+        logger.info("Golf Tour {} has {} players, {} rounds and {} matchAssignments"
                 + " with a search space of {}.",
-                inputId, teamList.size(), dayList.size(), unavailabilityPenaltyList.size(), teamAssignmentList.size(),
+                inputId, playerList.size(), roundList.size(), matchAssignmentList.size(),
                 AbstractSolutionImporter.getFlooredPossibleSolutionSize(possibleSolutionSize));
-        return tennisSolution;
+        return golfTourSolution;
     }
 
 }

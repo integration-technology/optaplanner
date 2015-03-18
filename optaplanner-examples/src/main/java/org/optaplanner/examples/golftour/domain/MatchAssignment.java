@@ -22,60 +22,63 @@ import org.optaplanner.core.api.domain.variable.PlanningVariable;
 import org.optaplanner.examples.common.domain.AbstractPersistable;
 import org.optaplanner.examples.tennis.domain.solver.MovableTeamAssignmentSelectionFilter;
 
-@PlanningEntity(movableEntitySelectionFilter = MovableTeamAssignmentSelectionFilter.class)
-@XStreamAlias("GolfTourTeamAssignment")
-public class TeamAssignment extends AbstractPersistable {
+import java.util.ArrayList;
 
-    private Day day;
-    private int indexInDay;
+@PlanningEntity(movableEntitySelectionFilter = MovableTeamAssignmentSelectionFilter.class)
+@XStreamAlias("GolfTourMatchAssignment")
+public class MatchAssignment extends AbstractPersistable {
+
+    private Round round;
+    private int indexInRound;
     private boolean locked;
 
     // planning variable
-    private Team team;
+    private ArrayList<Pair> pairArrayList;
 
-    public TeamAssignment() {
+    public MatchAssignment() {
     }
 
-    public TeamAssignment(long id, Day day, int indexInDay) {
+    public MatchAssignment(long id, Round round, int indexInRound) {
         super(id);
-        this.day = day;
-        this.indexInDay = indexInDay;
+        this.round = round;
+        this.indexInRound = indexInRound;
     }
 
-    public Day getDay() {
-        return day;
+    public Round getRound() {
+        return round;
     }
 
-    public void setDay(Day day) {
-        this.day = day;
+    public void setRound(Round round) {
+        this.round = round;
     }
 
-    public int getIndexInDay() {
-        return indexInDay;
+    public int getIndexInRound() {
+        return indexInRound;
     }
 
-    public void setIndexInDay(int indexInDay) {
-        this.indexInDay = indexInDay;
+    public void setIndexInRound(int indexInRound) {
+        this.indexInRound = indexInRound;
     }
-    /**
+
+  /**
      * @return true if immovable planning entity
      * @see MovableTeamAssignmentSelectionFilter
      */
+
     public boolean isLocked() {
         return locked;
     }
-
     public void setLocked(boolean locked) {
         this.locked = locked;
     }
 
-    @PlanningVariable(valueRangeProviderRefs = {"teamRange"})
-    public Team getTeam() {
-        return team;
+    @PlanningVariable(valueRangeProviderRefs = {"pairRange"})
+    public ArrayList<Pair> getPairArrayList() {
+      return pairArrayList;
     }
 
-    public void setTeam(Team team) {
-        this.team = team;
+    public void setPairArrayList(ArrayList<Pair> pairArrayList) {
+      this.pairArrayList = pairArrayList;
     }
 
 }

@@ -25,70 +25,62 @@ import org.optaplanner.core.api.domain.solution.PlanningEntityCollectionProperty
 import org.optaplanner.core.api.domain.solution.PlanningSolution;
 import org.optaplanner.core.api.domain.solution.Solution;
 import org.optaplanner.core.api.domain.valuerange.ValueRangeProvider;
-import org.optaplanner.core.api.score.buildin.hardmediumsoft.HardMediumSoftScore;
+import org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore;
 import org.optaplanner.examples.common.domain.AbstractPersistable;
 
 @PlanningSolution
 @XStreamAlias("GolfTourSolution")
-public class GolfTourSolution extends AbstractPersistable implements Solution<HardMediumSoftScore> {
+public class GolfTourSolution extends AbstractPersistable implements Solution<HardSoftScore> {
 
-    private List<Team> teamList;
-    private List<Day> dayList;
-    private List<UnavailabilityPenalty> unavailabilityPenaltyList;
+    private List<Pair> pairList;
+    private List<Round> roundList;
 
-    private List<TeamAssignment> teamAssignmentList;
+    private List<MatchAssignment> matchAssignmentList;
 
-    private HardMediumSoftScore score;
+    private HardSoftScore score;
 
-    @ValueRangeProvider(id = "teamRange")
-    public List<Team> getTeamList() {
-        return teamList;
+    @ValueRangeProvider(id = "pairRange")
+    public List<Pair> getPairList() {
+        return pairList;
     }
 
-    public void setTeamList(List<Team> teamList) {
-        this.teamList = teamList;
+    public void setPairList(List<Pair> pairList) {
+        this.pairList = pairList;
     }
 
-    public List<Day> getDayList() {
-        return dayList;
+    public List<Round> getRoundList() {
+        return roundList;
     }
 
-    public void setDayList(List<Day> dayList) {
-        this.dayList = dayList;
+    public void setRoundList(List<Round> roundList) {
+        this.roundList = roundList;
     }
 
-    public List<UnavailabilityPenalty> getUnavailabilityPenaltyList() {
-        return unavailabilityPenaltyList;
-    }
 
-    public void setUnavailabilityPenaltyList(List<UnavailabilityPenalty> unavailabilityPenaltyList) {
-        this.unavailabilityPenaltyList = unavailabilityPenaltyList;
-    }
 
     @PlanningEntityCollectionProperty
-    public List<TeamAssignment> getTeamAssignmentList() {
-        return teamAssignmentList;
+    public List<MatchAssignment> getMatchAssignmentList() {
+        return matchAssignmentList;
     }
 
-    public void setTeamAssignmentList(List<TeamAssignment> teamAssignmentList) {
-        this.teamAssignmentList = teamAssignmentList;
+    public void setMatchAssignmentList(List<MatchAssignment> matchAssignmentList) {
+        this.matchAssignmentList = matchAssignmentList;
     }
 
-    public HardMediumSoftScore getScore() {
+    public HardSoftScore getScore() {
         return score;
     }
 
-    public void setScore(HardMediumSoftScore score) {
+    public void setScore(HardSoftScore score) {
         this.score = score;
     }
 
     @Override
     public Collection<?> getProblemFacts() {
         List<Object> facts = new ArrayList<Object>();
-        facts.addAll(teamList);
-        facts.addAll(dayList);
-        facts.addAll(unavailabilityPenaltyList);
-        // Do not add the planning entity's (teamAssignmentList) because that will be done automatically
+        facts.addAll(pairList);
+        facts.addAll(roundList);
+        // Do not add the planning entity's (matchAssignmentList) because that will be done automatically
         return facts;
     }
 

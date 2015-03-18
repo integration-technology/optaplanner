@@ -1,6 +1,6 @@
 <TennisSolution id="1">
   <id>0</id>
-  <teamList id="2">
+  <playerList id="2">
     <TennisTeam id="3">
       <id>0</id>
       <name>Micha</name>
@@ -29,7 +29,7 @@
       <id>6</id>
       <name>Tobias</name>
     </TennisTeam>
-  </teamList>
+  </playerList>
   <dayList id="10">
     <TennisDay id="11">
       <id>0</id>
@@ -106,51 +106,51 @@
   </dayList>
   <unavailabilityPenaltyList id="29">
     <TennisUnavailabilityPenalty id="30">
-      <team reference="7"/>
+      <player reference="7"/>
       <day reference="11"/>
     </TennisUnavailabilityPenalty>
     <TennisUnavailabilityPenalty id="31">
-      <team reference="9"/>
+      <player reference="9"/>
       <day reference="12"/>
     </TennisUnavailabilityPenalty>
     <TennisUnavailabilityPenalty id="32">
-      <team reference="5"/>
+      <player reference="5"/>
       <day reference="13"/>
     </TennisUnavailabilityPenalty>
     <TennisUnavailabilityPenalty id="33">
-      <team reference="7"/>
+      <player reference="7"/>
       <day reference="14"/>
     </TennisUnavailabilityPenalty>
     <TennisUnavailabilityPenalty id="34">
-      <team reference="7"/>
+      <player reference="7"/>
       <day reference="16"/>
     </TennisUnavailabilityPenalty>
     <TennisUnavailabilityPenalty id="35">
-      <team reference="5"/>
+      <player reference="5"/>
       <day reference="17"/>
     </TennisUnavailabilityPenalty>
     <TennisUnavailabilityPenalty id="36">
-      <team reference="4"/>
+      <player reference="4"/>
       <day reference="19"/>
     </TennisUnavailabilityPenalty>
     <TennisUnavailabilityPenalty id="37">
-      <team reference="5"/>
+      <player reference="5"/>
       <day reference="20"/>
     </TennisUnavailabilityPenalty>
     <TennisUnavailabilityPenalty id="38">
-      <team reference="7"/>
+      <player reference="7"/>
       <day reference="21"/>
     </TennisUnavailabilityPenalty>
     <TennisUnavailabilityPenalty id="39">
-      <team reference="7"/>
+      <player reference="7"/>
       <day reference="22"/>
     </TennisUnavailabilityPenalty>
     <TennisUnavailabilityPenalty id="40">
-      <team reference="9"/>
+      <player reference="9"/>
       <day reference="23"/>
     </TennisUnavailabilityPenalty>
     <TennisUnavailabilityPenalty id="41">
-      <team reference="8"/>
+      <player reference="8"/>
       <day reference="26"/>
     </TennisUnavailabilityPenalty>
   </unavailabilityPenaltyList>

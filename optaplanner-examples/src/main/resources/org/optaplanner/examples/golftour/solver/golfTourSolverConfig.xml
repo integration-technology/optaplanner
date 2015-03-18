@@ -4,13 +4,13 @@
   <!--<environmentMode>FAST_ASSERT</environmentMode>-->
 
   <!-- Domain model configuration -->
-  <solutionClass>org.optaplanner.examples.tennis.domain.TennisSolution</solutionClass>
-  <entityClass>org.optaplanner.examples.tennis.domain.TeamAssignment</entityClass>
+  <solutionClass>org.optaplanner.examples.golftour.domain.GolfTourSolution</solutionClass>
+  <entityClass>org.optaplanner.examples.golftour.domain.Match</entityClass>
 
   <!-- Score configuration -->
   <scoreDirectorFactory>
-    <scoreDefinitionType>HARD_MEDIUM_SOFT</scoreDefinitionType>
-    <scoreDrl>org/optaplanner/examples/tennis/solver/tennisScoreRules.drl</scoreDrl>
+    <scoreDefinitionType>HARD_SOFT</scoreDefinitionType>
+    <scoreDrl>org/optaplanner/examples/golftour/solver/golfTourScoreRules.drl</scoreDrl>
     <initializingScoreTrend>ONLY_DOWN</initializingScoreTrend>
   </scoreDirectorFactory>
 

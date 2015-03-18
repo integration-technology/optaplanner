@@ -27,12 +27,12 @@ public class GolfTourDaoTest extends SolutionDaoTest {
 
     @Override
     protected SolutionDao createSolutionDao() {
-        return new org.optaplanner.examples.tennis.persistence.GolfTourDao();
+        return new org.optaplanner.examples.golftour.persistence.GolfTourDao();
     }
 
     @Parameterized.Parameters(name = "{index}: {0}")
     public static Collection<Object[]> getSolutionFilesAsParameters() {
-        return getSolutionFilesAsParameters(new org.optaplanner.examples.tennis.persistence.GolfTourDao());
+        return getSolutionFilesAsParameters(new org.optaplanner.examples.golftour.persistence.GolfTourDao());
     }
 
     public GolfTourDaoTest(File solutionFile) {

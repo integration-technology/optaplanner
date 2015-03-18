@@ -22,7 +22,7 @@ import org.junit.Test;
 import org.optaplanner.core.config.solver.EnvironmentMode;
 import org.optaplanner.examples.common.app.SolverPerformanceTest;
 import org.optaplanner.examples.common.persistence.SolutionDao;
-import org.optaplanner.examples.tennis.persistence.GolfTourDao;
+import org.optaplanner.examples.golftour.persistence.GolfTourDao;
 
 public class GolfTourPerformanceTest extends SolverPerformanceTest {
 

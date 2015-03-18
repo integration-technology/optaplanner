@@ -32,16 +32,16 @@ global HardMediumSoftScoreHolder scoreHolder;
 
 rule "oneAssignmentPerDatePerTeam"
     when
-        TeamAssignment(team != null, $t : team, $d : day, $leftId : id)
-        TeamAssignment(team == $t, day == $d, id > $leftId)
+        TeamAssignment(player != null, $t : player, $d : day, $leftId : id)
+        TeamAssignment(player == $t, day == $d, id > $leftId)
     then
         scoreHolder.addHardConstraintMatch(kcontext, -1);
 end
 
 rule "unavailabilityPenalty"
     when
-        UnavailabilityPenalty($t : team, $d : day)
-        TeamAssignment(team == $t, day == $d)
+        UnavailabilityPenalty($t : player, $d : day)
+        TeamAssignment(player == $t, day == $d)
     then
         scoreHolder.addHardConstraintMatch(kcontext, -1);
 end
@@ -54,7 +54,7 @@ rule "fairAssignmentCountPerTeam"
     when
         $t : Team()
         $total : Number() from accumulate(
-            $a : TeamAssignment(team == $t),
+            $a : TeamAssignment(player == $t),
             count($a)
         )
     then
@@ -70,8 +70,8 @@ rule "evenlyConfrontationCount"
         $t1 : Team()
         $t2 : Team()
         $total : Number() from accumulate(
-            $a : TeamAssignment(team == $t1, $d : day, $leftId : id)
-            and TeamAssignment(team == $t2, day == $d, id > $leftId),
+            $a : TeamAssignment(player == $t1, $d : day, $leftId : id)
+            and TeamAssignment(player == $t2, day == $d, id > $leftId),
             count($a)
         )
     then

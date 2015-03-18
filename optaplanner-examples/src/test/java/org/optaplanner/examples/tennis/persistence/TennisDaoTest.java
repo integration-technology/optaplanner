@@ -27,12 +27,12 @@ public class TennisDaoTest extends SolutionDaoTest {
 
     @Override
     protected SolutionDao createSolutionDao() {
-        return new GolfTourDao();
+        return new TennisDao();
     }
 
     @Parameterized.Parameters(name = "{index}: {0}")
     public static Collection<Object[]> getSolutionFilesAsParameters() {
-        return getSolutionFilesAsParameters(new GolfTourDao());
+        return getSolutionFilesAsParameters(new TennisDao());
     }
 
     public TennisDaoTest(File solutionFile) {

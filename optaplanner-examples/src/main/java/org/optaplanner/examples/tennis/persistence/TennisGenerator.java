@@ -40,7 +40,7 @@ public class TennisGenerator extends LoggingMain {
     protected final File outputDir;
 
     public TennisGenerator() {
-        solutionDao = new GolfTourDao();
+        solutionDao = new TennisDao();
         outputDir = new File(solutionDao.getDataDir(), "unsolved");
     }
 

@@ -20,15 +20,15 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 import org.optaplanner.examples.common.domain.AbstractPersistable;
 import org.optaplanner.examples.common.swingui.components.Labeled;
 
-@XStreamAlias("GolfTourTeam")
-public class Team extends AbstractPersistable implements Labeled {
+@XStreamAlias("GolfTourPlayer")
+public class Player extends AbstractPersistable implements Labeled {
 
     private String name;
 
-    public Team() {
+    public Player() {
     }
 
-    public Team(long id, String name) {
+    public Player(long id, String name) {
         super(id);
         this.name = name;
     }

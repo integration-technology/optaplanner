@@ -66,36 +66,36 @@ end
 
 rule "startToAwayHop"
     when
-        Match($toTeam : homeTeam, $team : awayTeam, $firstDayIndex : day.getIndex())
+        Match($toTeam : homeTeam, $player : awayTeam, $firstDayIndex : day.getIndex())
         not Day(index == $firstDayIndex - 1)
     then
-        scoreHolder.addSoftConstraintMatch(kcontext, - $team.getDistance($toTeam));
+        scoreHolder.addSoftConstraintMatch(kcontext, - $player.getDistance($toTeam));
 end
 rule "homeToAwayHop"
     when
-        Match($team : homeTeam, $firstDayIndex : day.getIndex())
-        Match($toTeam : homeTeam, awayTeam == $team, day.getIndex() == $firstDayIndex + 1)
+        Match($player : homeTeam, $firstDayIndex : day.getIndex())
+        Match($toTeam : homeTeam, awayTeam == $player, day.getIndex() == $firstDayIndex + 1)
     then
-        scoreHolder.addSoftConstraintMatch(kcontext, - $team.getDistance($toTeam));
+        scoreHolder.addSoftConstraintMatch(kcontext, - $player.getDistance($toTeam));
 end
 rule "awayToAwayHop"
     when
-        Match($fromTeam : homeTeam, $team : awayTeam, $firstDayIndex : day.getIndex())
-        Match($toTeam : homeTeam, awayTeam == $team, day.getIndex() == $firstDayIndex + 1)
+        Match($fromTeam : homeTeam, $player : awayTeam, $firstDayIndex : day.getIndex())
+        Match($toTeam : homeTeam, awayTeam == $player, day.getIndex() == $firstDayIndex + 1)
     then
         scoreHolder.addSoftConstraintMatch(kcontext, - $fromTeam.getDistance($toTeam));
 end
 rule "awayToHomeHop"
     when
-        Match($fromTeam : homeTeam, $team : awayTeam, $firstDayIndex : day.getIndex())
-        Match(homeTeam == $team, day.getIndex() == $firstDayIndex + 1)
+        Match($fromTeam : homeTeam, $player : awayTeam, $firstDayIndex : day.getIndex())
+        Match(homeTeam == $player, day.getIndex() == $firstDayIndex + 1)
     then
-        scoreHolder.addSoftConstraintMatch(kcontext, - $fromTeam.getDistance($team));
+        scoreHolder.addSoftConstraintMatch(kcontext, - $fromTeam.getDistance($player));
 end
 rule "awayToEndHop"
     when
-        Match($fromTeam : homeTeam, $team : awayTeam, $firstDayIndex : day.getIndex())
+        Match($fromTeam : homeTeam, $player : awayTeam, $firstDayIndex : day.getIndex())
         not Day(index == $firstDayIndex + 1)
     then
-        scoreHolder.addSoftConstraintMatch(kcontext, - $fromTeam.getDistance($team));
+        scoreHolder.addSoftConstraintMatch(kcontext, - $fromTeam.getDistance($player));
 end

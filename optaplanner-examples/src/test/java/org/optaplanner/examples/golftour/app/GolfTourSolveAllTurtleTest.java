@@ -22,7 +22,7 @@ import java.util.Collection;
 import org.junit.runners.Parameterized;
 import org.optaplanner.examples.common.app.UnsolvedDirSolveAllTurtleTest;
 import org.optaplanner.examples.common.persistence.SolutionDao;
-import org.optaplanner.examples.tennis.persistence.GolfTourDao;
+import org.optaplanner.examples.golftour.persistence.GolfTourDao;
 
 public class GolfTourSolveAllTurtleTest extends UnsolvedDirSolveAllTurtleTest {
 

@@ -179,8 +179,8 @@ public class MatchChainRotationsMoveFactory implements MoveListFactory<Traveling
                                     addTeamRotateMove(moveList, firstShortcutRotateList, secondShortcutRotateList);
                                 }
                                 firstTeamIsHomeTeam = !firstTeamIsHomeTeam;
-//                            Team firstRepairHomeTeam = (firstTeamIsHomeTeam ^ shortcut) ? firstTeam : teamToFind;
-//                            Team firstRepairAwayTeam = (firstTeamIsHomeTeam ^ shortcut) ? teamToFind : firstTeam;
+//                            Player firstRepairHomeTeam = (firstTeamIsHomeTeam ^ shortcut) ? firstTeam : teamToFind;
+//                            Player firstRepairAwayTeam = (firstTeamIsHomeTeam ^ shortcut) ? teamToFind : firstTeam;
 //                            Match firstRepairMatch = homeTeamAwayTeamMap
 //                                    .get(firstRepairHomeTeam).get(firstRepairAwayTeam);
                                 firstRepairMatch = homeTeamAwayTeamMap

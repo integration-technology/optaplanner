@@ -122,7 +122,7 @@ public class GolfTourPanel extends SolutionPanel {
     }
 
     private void fillCells(TennisSolution tennisSolution) {
-        datesPanel.addCornerHeader(HEADER_COLUMN, HEADER_ROW, createHeaderPanel(new JLabel("Team")));
+        datesPanel.addCornerHeader(HEADER_COLUMN, HEADER_ROW, createHeaderPanel(new JLabel("Player")));
         fillDayCells(tennisSolution);
         fillTeamCells(tennisSolution);
         fillUnavailabilityPenaltyCells(tennisSolution);
@@ -265,7 +265,7 @@ public class GolfTourPanel extends SolutionPanel {
 
         public void actionPerformed(ActionEvent e) {
             JPanel listFieldsPanel = new JPanel(new GridLayout(2, 2));
-            listFieldsPanel.add(new JLabel("Team:"));
+            listFieldsPanel.add(new JLabel("Player:"));
             List<Team> teamList = getTennisSolution().getTeamList();
             // Add 1 to array size to add null, which makes the entity unassigned
             JComboBox teamListField = new JComboBox(

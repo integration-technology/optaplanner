@@ -22,8 +22,7 @@ import org.optaplanner.examples.common.app.CommonApp;
 import org.optaplanner.examples.common.persistence.SolutionDao;
 import org.optaplanner.examples.common.swingui.SolutionPanel;
 import org.optaplanner.examples.golftour.swingui.GolfTourPanel;
-import org.optaplanner.examples.tennis.persistence.GolfTourDao;
-import org.optaplanner.examples.tennis.swingui.TennisPanel;
+import org.optaplanner.examples.golftour.persistence.GolfTourDao;
 
 public class GolfTourApp extends CommonApp {
 
@@ -37,7 +36,7 @@ public class GolfTourApp extends CommonApp {
 
     public GolfTourApp() {
         super("Golf Tour Match Scheduling",
-                "Assign players into pairs and into matches.\n\n" +
+                "Assign players into pairs and into two matches per round.\n\n" +
                         "eight players.\n" +
                         "four rounds so eight matches.\n" +
                         "four ball better ball.\n" +
@@ -56,7 +55,7 @@ public class GolfTourApp extends CommonApp {
 
     @Override
     protected SolutionPanel createSolutionPanel() {
-        return new TennisPanel();
+        return new GolfTourPanel();
     }
 
     @Override

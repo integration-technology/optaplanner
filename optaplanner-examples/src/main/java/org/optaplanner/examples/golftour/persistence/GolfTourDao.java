@@ -14,15 +14,15 @@
  * limitations under the License.
  */
 
-package org.optaplanner.examples.tennis.persistence;
+package org.optaplanner.examples.golftour.persistence;
 
 import org.optaplanner.examples.common.persistence.XStreamSolutionDao;
-import org.optaplanner.examples.tennis.domain.TennisSolution;
+import org.optaplanner.examples.golftour.domain.GolfTourSolution;
 
 public class GolfTourDao extends XStreamSolutionDao {
 
     public GolfTourDao() {
-        super("tennis", TennisSolution.class);
+        super("golftour", GolfTourSolution.class);
     }
 
 }

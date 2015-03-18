@@ -211,7 +211,7 @@
     <TtpDay reference="43"/>
     <TtpDay reference="44"/>
   </dayList>
-  <teamList id="45">
+  <playerList id="45">
     <TtpTeam id="46">
       <id>0</id>
       <name>BOS</name>
@@ -2280,7 +2280,7 @@
     <TtpTeam reference="88"/>
     <TtpTeam reference="86"/>
     <TtpTeam reference="66"/>
-  </teamList>
+  </playerList>
   <matchList id="90">
     <TtpMatch id="91">
       <id>0</id>

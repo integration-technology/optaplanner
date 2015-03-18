@@ -22,7 +22,7 @@ import org.junit.Test;
 import org.optaplanner.core.config.solver.EnvironmentMode;
 import org.optaplanner.examples.common.app.SolverPerformanceTest;
 import org.optaplanner.examples.common.persistence.SolutionDao;
-import org.optaplanner.examples.tennis.persistence.GolfTourDao;
+import org.optaplanner.examples.tennis.persistence.TennisDao;
 
 public class TennisPerformanceTest extends SolverPerformanceTest {
 
@@ -33,7 +33,7 @@ public class TennisPerformanceTest extends SolverPerformanceTest {
 
     @Override
     protected SolutionDao createSolutionDao() {
-        return new GolfTourDao();
+        return new TennisDao();
     }
 
     // ************************************************************************
